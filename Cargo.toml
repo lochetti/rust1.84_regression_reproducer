@@ -1,0 +1,32 @@
+[package]
+name = "reproducer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+diesel = { version = "2", features = [
+    "numeric",
+    "postgres",
+    "uuid",
+    "without-deprecated",
+    "serde_json",
+    "time",
+    "network-address",
+    "32-column-tables",
+], default-features = false }
+diesel-async = { version = "0.5.0", features = [
+    "deadpool",
+    "postgres",
+], default-features = false }
+tokio = { version = "1.12.0", features = [
+    "time",
+    "sync",
+    "macros",
+    "fs",
+    "rt",
+    "signal",
+    "rt-multi-thread",
+], default-features = false }
+
+[build]
+incremental = false
